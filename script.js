@@ -1,5 +1,6 @@
-// Carousel Slider
-// https://codepen.io/josetxu/pen/wBBqaer
+
+
+
 
 // Front page loading
 window.onload = () => {
@@ -29,7 +30,7 @@ const customersTyping = document.getElementById("customers-typing");
 startAnimationOnSeen(customersTyping, 500, "start");
 
 const customersBtn = document.getElementById("customers-btn");
-startAnimationOnSeen(customersBtn, 3000, "show");
+startAnimationOnSeen(customersBtn, 1500, "show");
 
 
 
@@ -63,6 +64,50 @@ window.addEventListener('scroll', function() {
 
 });
 
+// CAROUSEL
+var swiper = new Swiper(".swiper", {
+	effect: "coverflow",
+	loop: true,
+	grabCursor: true,
+	centeredSlides: true,
+	slidesPerView: "1",
+	coverflowEffect: {
+		rotate: 50, 
+		stretch: 0, 
+		depth: 100, 
+		modifier: 1, 
+		slideShadows: false 
+	},
+	pagination: {
+		el: ".swiper-pagination"
+	},
+	breakpoints: {
+		// when window width is >= 320px
+		320: {
+			slidesPerView: 1.5
+		},
+		// when window width is >= 480px
+		580: {
+			slidesPerView: 2
+		},
+		// when window width is >= 480px
+		767: {
+			slidesPerView: 3
+		},
+		992: {
+			slidesPerView: 3.5
+		},
+		1200: {
+			slidesPerView: 4
+		}
+	}
+});
+
+
+
+
+
+
 
 // FUNCTIONS:
 function startAnimationOnSeen(el, timeout, action){
@@ -74,10 +119,6 @@ function startAnimationOnSeen(el, timeout, action){
             el.classList.add(action);
         }, timeout); 
         
-        } else {
-
-
-            el.classList.remove(action);
         }
     }, {
         threshold: 1 
