@@ -10,9 +10,7 @@ body{
     font-family: "Quicksand", sans-serif;
 }
 
-section{
-    z-index: 2;
-}
+
 
 #front-page{
     display: flex;

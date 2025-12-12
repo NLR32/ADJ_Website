@@ -11,6 +11,7 @@ window.onload = () => {
 
     console.log(typing, navbar, btn);
 
+    
 
     setTimeout(() => {
         typing.classList.add("start");
@@ -19,7 +20,19 @@ window.onload = () => {
         btn.classList.add("show");
 
     }, 1500); 
+
+  
 };
+
+// document.addEventListener('DOMContentLoaded', function() {
+//   const topPage = document.getElementById("front-page");
+//     topPage.scrollIntoView({
+//         behavior: 'auto'
+//     });
+
+// });
+
+
 
 //brands text loading
 const customerText = document.getElementById("customers-text");
