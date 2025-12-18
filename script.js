@@ -9,7 +9,7 @@ window.onload = () => {
     const navbar = document.getElementById("navbar");
     const btn = document.getElementById("front-btn");
 
-    console.log(typing, navbar, btn);
+    // console.log(typing, navbar, btn);
 
     
 
@@ -44,6 +44,15 @@ startAnimationOnSeen(customersTyping, 500, "start");
 
 const customersBtn = document.getElementById("customers-btn");
 startAnimationOnSeen(customersBtn, 1500, "show");
+
+// const approach =  document.getElementById("approach-section");
+// startAnimationOnSeen(approach, 500, "shade", 0.3);
+
+// Individual bullet animations - each appears as you scroll to it
+// const bullets = document.querySelectorAll('.bullet-item');
+// bullets.forEach((bullet, index) => {
+//     startAnimationOnSeen(bullet, 300, "show", 0.6);
+// });
 
 
 
@@ -123,18 +132,18 @@ var swiper = new Swiper(".swiper", {
 
 
 // FUNCTIONS:
-function startAnimationOnSeen(el, timeout, action){
+function startAnimationOnSeen(el, timeout, action, threshold = 1){
+
     const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
-
-
             setTimeout(() => {
-            el.classList.add(action);
-        }, timeout); 
-        
+                el.classList.add(action);
+            }, timeout);
+        } else {
+            el.classList.remove(action);
         }
     }, {
-        threshold: 1 
+        threshold: threshold
     });
 
     observer.observe(el);
