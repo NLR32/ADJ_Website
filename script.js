@@ -43,10 +43,10 @@ const customersTyping = document.getElementById("customers-typing");
 startAnimationOnSeen(customersTyping, 500, "start");
 
 const customersBtn = document.getElementById("customers-btn");
-startAnimationOnSeen(customersBtn, 1500, "show");
+startAnimationOnSeen(customersBtn, 300, "show");
 
-// const approach =  document.getElementById("approach-section");
-// startAnimationOnSeen(approach, 500, "shade", 0.3);
+const approach =  document.getElementById("approach");
+startAnimationOnSeen(approach, 300, "shade", .3);
 
 // Individual bullet animations - each appears as you scroll to it
 // const bullets = document.querySelectorAll('.bullet-item');
