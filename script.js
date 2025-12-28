@@ -48,6 +48,10 @@ startAnimationOnSeen(customersBtn, 300, "show");
 const approach =  document.getElementById("approach");
 startAnimationOnSeen(approach, 300, "shade", .3);
 
+const testimonial =  document.getElementById("test-type");
+startAnimationOnSeen(testimonial, 300, "start");
+
+
 // Individual bullet animations - each appears as you scroll to it
 // const bullets = document.querySelectorAll('.bullet-item');
 // bullets.forEach((bullet, index) => {
@@ -125,7 +129,29 @@ var swiper = new Swiper(".swiper", {
 	}
 });
 
+// TESTIMONIALS CAROUSEL
+const testimonials = document.querySelectorAll('.test-content');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
 
+let currentIndex = 0;
+
+function showTestimonial(index) {
+    testimonials.forEach((item, i) => {
+        item.classList.toggle('active', i === index);
+    });
+}
+
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % testimonials.length;
+    showTestimonial(currentIndex);
+});
+
+prevBtn.addEventListener('click', () => {
+    currentIndex =
+        (currentIndex - 1 + testimonials.length) % testimonials.length;
+    showTestimonial(currentIndex);
+});
 
 
 
@@ -140,7 +166,8 @@ function startAnimationOnSeen(el, timeout, action, threshold = 1){
                 el.classList.add(action);
             }, timeout);
         } else {
-            el.classList.remove(action);
+            if (action != "shade")
+                el.classList.remove(action);
         }
     }, {
         threshold: threshold

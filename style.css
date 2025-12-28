@@ -505,6 +505,9 @@ h3 {
     flex-direction: column;
     flex: 2; */
     margin-left: 10vw;
+    padding-bottom: 25rem;
+    padding-top: 10rem;
+
 
 }
 
@@ -540,8 +543,12 @@ h3 {
     padding: 20vh 4rem 0 4rem;
     margin-left: 60vw;
 
+    position: relative;
+    top: -35rem;
     /* background-color: red;   */
 }
+
+
 
 
 .bullet-item {
@@ -554,6 +561,10 @@ h3 {
     color: var(--background-color);
     min-height: 50vh;
 
+}
+
+.last {
+    min-height: fit-content;
 }
 
 .bullet-item::before {
@@ -570,8 +581,80 @@ h3 {
     background-position: center;
 }
 
+#testimonials{
+    height: 70vh;
 
 
+    margin-top: 10vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.dir {
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    z-index: 2;
+    
+}
+
+#test-box{
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    
+}
+
+.testimonials-container {
+    position: relative;
+    width: 70vw;
+    min-height: 150px;
+}
+
+.test-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.test-content.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.test-text{
+    font-size: 3rem;
+    width: 50%;
+}
+
+.author{
+    padding-top: 40px;
+    font-style: italic;
+
+}
+
+#test-type.start{
+    width: 15ch;
+    animation: typing 1.5s steps(18), blink .5s step-end infinite alternate;
+}
 
 
 #footer{
