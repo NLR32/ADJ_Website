@@ -8,10 +8,13 @@
 body{
     background-color: var(--background-color);
     font-family: "Quicksand", sans-serif;
+     transition: background-color 0.3s ease; 
+     overflow-x: hidden;
 }
 
 html, body {
     max-width: 100%;
+
     /* overflow-x: hidden; */
 }
 
@@ -170,6 +173,24 @@ h1 {
     border-radius: var(--radius);
     border-color: var(--primary-color);
     cursor: pointer;
+}
+.btn.const{
+    opacity: 1;
+    transform: translateY(0px);
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border-radius: var(--radius);
+    border-color: var(--primary-color);
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.btn.const:hover{
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-color: var(--text-color);
+    border-style: solid;
+    
 }
 
 #customers{
@@ -482,21 +503,26 @@ h3 {
 
 #approach {
     /* display: flex; */
-    width: 100vw;
+    width: 100%;
     flex-direction: row;
     justify-content: center;
-    transition: all 1s ease;
+    transition: all .3s ease;
+    position: relative;
+
+    /* overflow: hidden; */
 
 }
 
 #approach.shade{
-    background-color: var(--text-color);
-    transition: all 1s ease;
+    /* background-color: var(--text-color); */
+    transition: all .3s ease;
+    z-index: 2;
     
 } 
 
 
 #approach-left {
+    z-index: 4;
     
     position: sticky;
     top: 20rem;
@@ -537,6 +563,7 @@ h3 {
 }
 
 #approach-right {
+    z-index: 4;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -581,6 +608,26 @@ h3 {
     background-position: center;
 }
 
+#cursor-glow{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    position: fixed;
+    z-index: 3;
+    filter: blur(70px);
+    transition: all .3 ease;
+    visibility: hidden;
+
+}
+
+#cursor-glow.shade{
+    visibility: visible;
+
+}
+
+
+
 #testimonials{
     height: 70vh;
 
@@ -594,6 +641,13 @@ h3 {
 
 }
 
+.divider {
+    width: 95vw;
+    height: 1px;
+    background-color: var(--text-color);
+  
+}
+
 .dir {
     height: 20px;
     width: 20px;
@@ -602,6 +656,8 @@ h3 {
     justify-content: center;
     color: var(--text-color);
     z-index: 2;
+    /* align-self: center; */
+
     
 }
 
@@ -611,7 +667,8 @@ h3 {
     flex-direction: row;
     justify-content: center;
     text-align: center;
-    align-items: center;
+    align-items: initial;
+    height: 45vh;
     
 }
 
@@ -654,7 +711,150 @@ h3 {
 #test-type.start{
     width: 15ch;
     animation: typing 1.5s steps(18), blink .5s step-end infinite alternate;
+    margin-bottom: 50px;
 }
+
+#andrew{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 500vh;
+    margin-top: 10vh;
+    /* background-color: var(--text-color); */
+}
+
+#andrew-box {
+    width: 90%;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 30px;
+    align-items: flex-start;
+    position: sticky;
+    top: 20vh;
+}
+
+#andrew-left{
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+    position: relative;
+    height: 50%;
+}
+
+#andrew-left .paragraph {
+
+    font-size: 3.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+#andrew-left .paragraph.active {
+    opacity: 1;
+}
+
+#andrew-right{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+}
+
+#andrew-right img {
+    width: 30vw;
+    max-width: 400px;
+    border-radius: var(--radius);
+}
+
+#andrew-button-container {
+    position: sticky;
+    top: 80vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    z-index: 10;
+
+}
+
+#team {
+    margin-top: 200px;
+}
+
+#team-head{
+    font-family: "Quicksand", sans-serif;
+}
+
+#team-head.start{
+    width: 13ch;
+    animation: typing 1s steps(13), blink .5s step-end infinite alternate;
+}
+
+#members-grid{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: center;
+    gap: 50px 0;
+    margin-top: 50px;
+}
+
+.member {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 20vw;  
+    transition: transform .3s ease;
+    padding-left: 10px;
+}
+
+.member:hover{
+    transform: translateY(-20px);
+    height: 100%;
+}
+
+.member h3{
+    align-self: normal;
+    margin-bottom: 0;
+}
+
+.member img {
+    border-radius: var(--radius);
+}
+
+.member p {
+    align-self: normal;
+}
+
+
+.member::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  height: 0px;
+  background: var(--text-color);
+  transition: height 0.3s ease-in;
+  border-radius: var(--radius);
+}
+
+.member:hover::before {
+  height: 100%;
+  /* width: 100%; */
+}
+
+
 
 
 #footer{
