@@ -45,6 +45,9 @@ startAnimationOnSeen(customersTyping, 500, "start");
 const customersBtn = document.getElementById("customers-btn");
 startAnimationOnSeen(customersBtn, 300, "show");
 
+const caseText = document.getElementById("case-text");
+startAnimationOnSeen(caseText , 300, "show");
+
 const approach =  document.getElementById("approach");
 startAnimationOnSeen(approach, 0, "shade", .3);
 
@@ -54,12 +57,10 @@ startAnimationOnSeen(testimonial, 300, "start");
 const team = document.getElementById("team-head");
 startAnimationOnSeen(team, 1000, "start");
 
+Array.from(document.getElementsByClassName("member")).forEach(element => {
+    startAnimationOnSeen(element, 300, "show", .1);
+});
 
-// Individual bullet animations - each appears as you scroll to it
-// const bullets = document.querySelectorAll('.bullet-item');
-// bullets.forEach((bullet, index) => {
-//     startAnimationOnSeen(bullet, 300, "show", 0.6);
-// });
 
 
 
@@ -197,14 +198,19 @@ animate();
 
 // FUNCTIONS:
 function startAnimationOnSeen(el, timeout, action, threshold = 1){
-    const cursor = document.getElementById("cursor-glow");
+    
     const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
             setTimeout(() => {
                 el.classList.add(action);
                 if (action == "shade"){
+                    const cursor = document.getElementById("cursor-glow");
                     cursor.classList.add("shade");
+                    const main = document.getElementById("main");
+                    main.style.backgroundColor = "var(--text-color)";
                     document.body.style.backgroundColor = "var(--text-color)";
+                    
+                    
 
                 }
             }, timeout);
@@ -212,10 +218,14 @@ function startAnimationOnSeen(el, timeout, action, threshold = 1){
 
             el.classList.remove(action);
             if (action == "shade"){
-
+                const cursor = document.getElementById("cursor-glow");
                 cursor.classList.remove("shade");
+                const main = document.getElementById("main");
+                main.style.backgroundColor = "var(--background-color)";
                 document.body.style.backgroundColor = "var(--background-color)";
-
+                    
+                    
+              
             }
         }
     }, {
@@ -268,3 +278,25 @@ window.addEventListener('resize', updateParagraph);
 
 // Initial check
 updateParagraph();
+
+
+//Momentum scrolling:
+// const lenis = new lenis({
+//     duration: 1.2,
+//     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+//     orientation: 'vertical',
+//     gestureOrientation: 'vertical',
+//     smoothWheel: true,
+//     wheelMultiplier: 1,
+//     smoothTouch: true,
+//     touchMultiplier: 2,
+//     infinite: false,
+// });
+
+// // Animation frame loop
+// function raf(time) {
+//     lenis.raf(time);
+//     requestAnimationFrame(raf);
+// }
+
+// requestAnimationFrame(raf);

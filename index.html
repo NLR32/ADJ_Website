@@ -13,15 +13,16 @@
 </head>
 <body>
 
-
+<main id="main">
 <section id="front-page">
     <nav id="navbar">
-        <a href="">Home</a>
-        <a href="">What We Do</a>
-        <a href="">Case Studies</a>
-        <a href="">About</a>
-        <a href="">Writing</a>
-        <a href="">Work With Us</a>
+        <a href="#front-page">Home</a>
+         <a href="#customers">About</a>
+        <a href="#case-study">What We Do</a>
+        <a href="#approach">Our Approach</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#andrew">The ADJ Story</a>
+        <a href="#team">The Team</a>
     </nav>
     <div id="frame">
         
@@ -90,7 +91,7 @@
                 </div>
             </div>
 
-            <div id="divider">
+            <div id="horz-box">
                 <div class="horz"></div>
                 <div class="horz"></div>
             </div>
@@ -107,8 +108,11 @@
     </div>
 </section>
 
-<section id="case-study">
 
+<section id="case-study">
+    <div id="case-text">
+        <h3>Check Out What We Do </h3>
+    </div>
 <div class="swiper">
 	<div class="swiper-wrapper">
 		<div class="swiper-slide">
@@ -174,8 +178,8 @@
                 <span>Info</span>
 			</div>
 		</div>
-<!-- 	<div class="swiper-pagination"></div> -->
 </div>
+
 </section>
 
 <section id="approach">
@@ -304,14 +308,69 @@
     </section>
 
 
- <!-- WRITING SAMPLES -->
+<section id="examples">
+    <div></div>
+</section>
  
-   <!-- FOOTER -->
+</main>
+  <footer class="reveal-footer">
+    <div id="footer-content">
+        <div id="footer-title">
+            <a href=""><h2>ADJ<br>Strategies</h2></a>
+        </div>
+        <div id="footer-links">
+            <a href="#front-page">Home</a>
+            <a href="#customers">About</a>
+            <a href="#case-study">What We Do</a>
+            <a href="#approach">Our Approach</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#andrew">The ADJ Story</a>
+            <a href="#team">The Team</a>
+         </div>
+        <div id="footer-details">
+            <h4>Location</h4>
+            <p>ADJ is based in Tel Aviv, usually somewhere between a Rothschild café and a founder’s office. If you see a laptop, a half-finished draft, and a founder pacing on a call nearby, you’re in the right place.</p>
+            <div id="socials">
+                <a href=""><img src="images/linkedin.svg" alt="linkedin"></a>
+               <a href=""><img src="images/mail.svg" alt="mail"></a> 
+            </div>
+        </div>
+    </div>
 
+    <div id="rose-digital">
+        <hr>
+        <h5>Designed by RoseDigital</h5>
+    </div>
+    
+   
+  </footer>
 
     
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+<script>
+    // Initialize Lenis
+    const lenis = new Lenis({
+        duration: 2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        smoothTouch: true,
+        touchMultiplier: 2,
+        infinite: false,
+    });
+
+    // Animation frame loop
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+</script>
 <script src="script.js"></script>
 </html>
