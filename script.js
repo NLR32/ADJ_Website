@@ -68,9 +68,14 @@ Array.from(document.getElementsByClassName("member")).forEach(element => {
 
 
 // scroll frame
-const frame = document.getElementById('frame');
+
 window.addEventListener('scroll', function() {
     const frame = document.getElementById("frame");
+    if (window.innerWidth < 786){
+        frame.style.position = "absolute";
+        return;
+    }
+    
 
     const scrollVal = window.pageYOffset;
     const viewportHeight = window.innerHeight; 
@@ -209,6 +214,9 @@ function startAnimationOnSeen(el, timeout, action, threshold = 1){
                     const main = document.getElementById("main");
                     main.style.backgroundColor = "var(--text-color)";
                     document.body.style.backgroundColor = "var(--text-color)";
+                    document.querySelectorAll('.swiper-slide-active .info').forEach(element => {
+                    element.style.visibility = 'hidden';
+});
                     
                     
 
@@ -223,6 +231,9 @@ function startAnimationOnSeen(el, timeout, action, threshold = 1){
                 const main = document.getElementById("main");
                 main.style.backgroundColor = "var(--background-color)";
                 document.body.style.backgroundColor = "var(--background-color)";
+                document.querySelectorAll('.swiper-slide-active .info').forEach(element => {
+                element.style.visibility = 'visible';
+});
                     
                     
               
@@ -280,23 +291,3 @@ window.addEventListener('resize', updateParagraph);
 updateParagraph();
 
 
-//Momentum scrolling:
-// const lenis = new lenis({
-//     duration: 1.2,
-//     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-//     orientation: 'vertical',
-//     gestureOrientation: 'vertical',
-//     smoothWheel: true,
-//     wheelMultiplier: 1,
-//     smoothTouch: true,
-//     touchMultiplier: 2,
-//     infinite: false,
-// });
-
-// // Animation frame loop
-// function raf(time) {
-//     lenis.raf(time);
-//     requestAnimationFrame(raf);
-// }
-
-// requestAnimationFrame(raf);

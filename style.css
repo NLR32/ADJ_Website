@@ -1031,6 +1031,7 @@ h3 {
 /* momentum scrolling */
 html.lenis {
     height: auto;
+    width: 100%;
 }
 
 .lenis.lenis-smooth {
@@ -1059,4 +1060,310 @@ html.lenis {
 }
 #case-study{
  scroll-margin-top: 0px;
+}
+
+
+@media (max-width: 768px) {
+    /* Global adjustments */
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    /* Navigation */
+    #navbar {
+        flex-direction: row;
+        height: auto;
+        gap: 10px;
+        border-bottom: solid;
+        border-radius: 0;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        gap: 3px;
+        padding-left: 0;
+
+    
+    }
+
+    #navbar a {
+        font-size: 0.5rem;
+        padding: 10px 0px;
+        
+    }
+
+
+    /* Front page */
+    #frame {
+        height: 88vh;
+        transition: opacity 0.2s;
+        opacity: 1;
+        position: fixed;
+        top: 11vh;
+        border-width: 3px;
+    }
+
+    #title-box {
+        margin-top: 15vh;
+        padding: 0 20px;
+    }
+
+    .typing-demo {
+        font-size: 1.2em;
+        width: 100%;
+        max-width: 90vw;
+    }
+
+    .btn {
+        font-size: 1.2rem;
+        padding: 12px 20px;
+    }
+
+    /* Customers section */
+    #customers-text {
+        width: 85%;
+        margin-top: 50px;
+    }
+
+    #customers-text.show {
+        margin-top: 80px;
+    }
+
+    .brands-track img {
+        height: 30px;
+        padding: 0 30px;
+    }
+
+    #customers-content {
+        flex-direction: column;
+        width: 90vw;
+        margin-top: 50px;
+    }
+
+    #customers-left {
+        left: 0;
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    #customers-sub {
+        width: 90%;
+        font-size: 1.2rem;
+    }
+
+    #customers-typing {
+        font-size: 1.5em;
+    }
+
+    /* Stats section */
+    #stats {
+        flex-direction: column;
+        margin-top: 50px;
+
+    }
+
+    #stats-left {
+        font-size: 1.5rem;
+    }
+
+    .num {
+        font-size: 3.5rem;
+    }
+
+    .vert {
+        height: 80px;
+        margin: 0 20px;
+    }
+
+    #horz-box {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .horz {
+        width: 45%;
+    }
+
+    #stats-right {
+         width: 90%;
+        margin-top: 40px;
+        font-size: 1.2rem;
+        text-align: center;
+        margin-left: 6vw;
+    }
+
+    /* Case study section */
+    #case-study {
+        margin-top: 15vh;
+    }
+
+    #case-text {
+        width: 85%;
+    }
+
+    .swiper {
+        height: 500px;
+    }
+
+    .swiper-slide {
+        width: 300px;
+    }
+
+    .case-content span {
+        font-size: 2rem;
+    }
+
+    .case-content div {
+        margin-top: 50px;
+        font-size: 0.9rem;
+    }
+
+    .info span {
+        font-size: 1.5rem;
+    }
+
+    /* Approach section */
+    #approach {
+        margin-top: 50px;
+    }
+
+    #approach-left {
+        position: relative;
+        margin-left: 5vw;
+        padding: 5rem 5vw 5rem 5vw;
+        top: 0;
+    }
+
+    #approach-header h2 {
+        font-size: 2.5rem;
+    }
+
+    #approach-left p {
+        font-size: 1.2rem;
+        max-width: 100%;
+    }
+
+    #approach-right {
+        margin-left: 0;
+        padding: 5vh 5vw;
+        position: relative;
+        top: 0;
+    }
+
+    .bullet-item {
+        font-size: 1.1rem;
+        min-height: auto;
+        margin-bottom: 3rem;
+        max-width: 100%;
+    }
+
+    .bullet-item::before {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+
+    #cursor-glow {
+        display: none;
+    }
+
+    /* Testimonials */
+    #testimonials {
+        height: auto;
+        min-height: 60vh;
+    }
+
+    #test-box {
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+    }
+
+    .testimonials-container {
+        width: 85vw;
+    }
+
+    .test-text {
+        font-size: 1.8rem;
+        width: 100%;
+    }
+
+    .dir {
+        align-self: center;
+    }
+
+    /* Andrew section */
+    #andrew {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    #andrew-box {
+        flex-direction: column-reverse;
+        height: auto;
+        width: 90%;
+        position: relative;
+        gap: 20px;
+    }
+
+    #andrew-left {
+        position: relative;
+        height: auto;
+        min-height: 400px;
+    }
+
+    #andrew-left .paragraph {
+        font-size: 1.5rem;
+        position: relative;
+    }
+
+    #andrew-right {
+        position: relative;
+        top: 0;
+    }
+
+    #andrew-right img {
+        width: 80vw;
+        max-width: 300px;
+    }
+
+    #andrew-button-container {
+        position: relative;
+        top: 0;
+        margin-top: 30px;
+    }
+
+    /* Team section */
+    #team {
+        margin-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    #members-grid {
+        grid-template-columns: 1fr;
+        width: 90%;
+        gap: 40px;
+    }
+
+    .member {
+        width: 80vw;
+        max-width: 350px;
+    }
+
+    .member img {
+        width: 100%;
+    }
+
+    /* Footer */
+    .reveal-footer {
+        display: none;
+    }
 }
