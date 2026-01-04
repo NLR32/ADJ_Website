@@ -24,6 +24,8 @@ window.onload = () => {
   
 };
 
+const screenWidth = window.innerWidth;
+
 // document.addEventListener('DOMContentLoaded', function() {
 //   const topPage = document.getElementById("front-page");
 //     topPage.scrollIntoView({
@@ -67,11 +69,13 @@ Array.from(document.getElementsByClassName("member")).forEach(element => {
 
 
 
+
+
 // scroll frame
 
 window.addEventListener('scroll', function() {
     const frame = document.getElementById("frame");
-    if (window.innerWidth < 786){
+    if (screenWidth < 786){
         frame.style.position = "absolute";
         return;
     }
@@ -85,7 +89,7 @@ window.addEventListener('scroll', function() {
 
     frame.style.height = newHeight + "px";
 
-    if (scrollVal > window.innerHeight - (viewportHeight * 0.04)) {
+    if (scrollVal > screenWidth - (viewportHeight * 0.04)) {
         frame.style.transition = "opacity 0.2s ease";
         frame.style.opacity = 0;
         frame.style.position = "absolute";
@@ -171,25 +175,30 @@ let mouseY = 0;
 let cursorX = 0;
 let cursorY = 0;
 
-// how "slow" the cursor follows — smaller = slower, larger = faster
 const speed = 1;
 
 document.addEventListener("mousemove", (event) => {
+    if (screenWidth < 800) {
+        return; 
+    }
     mouseX = event.clientX - 125;
     mouseY = event.clientY - 125;
-
 });
 
-
 function animate() {
-  // interpolate toward the mouse position
-  cursorX += (mouseX - cursorX) * speed;
-  cursorY += (mouseY - cursorY) * speed;
+    if (screenWidth < 800) {
+        requestAnimationFrame(animate);
+        return; // Skip animation on mobile, let CSS handle positioning
+    }
 
-  cursor.style.left = `${cursorX}px`;
-  cursor.style.top = `${cursorY}px`;
+    // interpolate toward the mouse position
+    cursorX += (mouseX - cursorX) * speed;
+    cursorY += (mouseY - cursorY) * speed;
 
-  requestAnimationFrame(animate);
+    cursor.style.left = `${cursorX}px`;
+    cursor.style.top = `${cursorY}px`;
+
+    requestAnimationFrame(animate);
 }
 
 animate();
@@ -216,6 +225,7 @@ function startAnimationOnSeen(el, timeout, action, threshold = 1){
                     document.body.style.backgroundColor = "var(--text-color)";
                     document.querySelectorAll('.swiper-slide-active .info').forEach(element => {
                     element.style.visibility = 'hidden';
+                    
 });
                     
                     
@@ -233,6 +243,7 @@ function startAnimationOnSeen(el, timeout, action, threshold = 1){
                 document.body.style.backgroundColor = "var(--background-color)";
                 document.querySelectorAll('.swiper-slide-active .info').forEach(element => {
                 element.style.visibility = 'visible';
+
 });
                     
                     
@@ -262,13 +273,28 @@ function updateParagraph() {
         const scrollInSection = scrollTop - sectionTop;
         
         // Each paragraph gets 100vh of scroll
-        const paragraphIndex = Math.min(
-            Math.floor(scrollInSection / viewportHeight),
-            paragraphs.length - 1
-        );
+
+        let paragraphIndex = 0;
+        if (window.innerWidth < 786) {
+            const sectionHeight = section.offsetHeight;
+            const segmentHeight = sectionHeight / paragraphs.length;
+            // Add offset so last paragraph shows when it's closer to viewport center/bottom
+            const offset = viewportHeight * 0.3; // Adjust this value (0.3 = 30% of viewport)
+            paragraphIndex = Math.min(
+                Math.floor((scrollInSection + offset) / segmentHeight),
+                paragraphs.length - 1
+            );
+        } else {
+            paragraphIndex = Math.min(
+                Math.floor(scrollInSection / viewportHeight),
+                paragraphs.length - 1
+            );
+        }
+       
 
         if (paragraphIndex !== currentParagraph) {
             // Remove active class from all paragraphs
+            console.log("paragrah");
             paragraphs.forEach(p => p.classList.remove('active'));
             
             // Add active class to current paragraph

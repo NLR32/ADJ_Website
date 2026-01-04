@@ -217,6 +217,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     height: fit-content;
+
 }
 
 h3 {
@@ -585,7 +586,7 @@ h3 {
 }
 
 #approach-header h2 {
-    font-size: 4rem;
+    font-size: 5vw;
     font-weight: normal;
     margin: 0;
     line-height: 0.9;
@@ -791,10 +792,10 @@ h3 {
 
 #andrew-left .paragraph {
 
-    font-size: 3.5rem;
+    font-size: 3vw;
     font-family: 'Times New Roman', Times, serif;
     position: absolute;
-    top: 0;
+    top: 5vh;
     left: 0;
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
@@ -1064,6 +1065,10 @@ html.lenis {
 
 
 @media (max-width: 768px) {
+
+    html, body{
+        overflow-x: hidden;
+    }
     /* Global adjustments */
     h1 {
         font-size: 3.5rem;
@@ -1077,7 +1082,6 @@ html.lenis {
     #navbar {
         flex-direction: row;
         height: auto;
-        gap: 10px;
         border-bottom: solid;
         border-radius: 0;
         border-top: none;
@@ -1085,13 +1089,16 @@ html.lenis {
         border-right: none;
         padding: 10px;
         position: fixed;
-        width: 100%;
+        width: 95%;
         top: 0;
         left: 0;
-        gap: 3px;
-        padding-left: 0;
+
 
     
+    }
+
+    #home{
+
     }
 
     #navbar a {
@@ -1117,7 +1124,7 @@ html.lenis {
     }
 
     .typing-demo {
-        font-size: 1.2em;
+        font-size: 1.0rem;
         width: 100%;
         max-width: 90vw;
     }
@@ -1240,6 +1247,9 @@ html.lenis {
         margin-left: 5vw;
         padding: 5rem 5vw 5rem 5vw;
         top: 0;
+        /* margin-bottom: 50vh;    */
+
+        /* background-color: transparent !important;    */
     }
 
     #approach-header h2 {
@@ -1260,7 +1270,7 @@ html.lenis {
 
     .bullet-item {
         font-size: 1.1rem;
-        min-height: auto;
+        min-height: 30vh;
         margin-bottom: 3rem;
         max-width: 100%;
     }
@@ -1272,28 +1282,37 @@ html.lenis {
     }
 
     #cursor-glow {
-        display: none;
+        position: absolute;
+        left: calc(50vw - 125px);
+        top: 50vh;
+
     }
 
     /* Testimonials */
     #testimonials {
         height: auto;
         min-height: 60vh;
+
     }
 
     #test-box {
-        flex-direction: column;
+
         height: auto;
         gap: 20px;
+
+        flex-wrap: wrap;
     }
 
     .testimonials-container {
-        width: 85vw;
+
+        flex: 1 1 85vw;
+        order: 1
     }
 
     .test-text {
         font-size: 1.8rem;
         width: 100%;
+
     }
 
     .dir {
@@ -1303,11 +1322,12 @@ html.lenis {
     /* Andrew section */
     #andrew {
         height: auto;
-        min-height: 100vh;
+        min-height: 190vh;
+
     }
 
     #andrew-box {
-        flex-direction: column-reverse;
+        flex-direction: column;
         height: auto;
         width: 90%;
         position: relative;
@@ -1317,7 +1337,8 @@ html.lenis {
     #andrew-left {
         position: relative;
         height: auto;
-        min-height: 400px;
+        min-height: fit-content;
+        gap: 20px;
     }
 
     #andrew-left .paragraph {
@@ -1328,17 +1349,24 @@ html.lenis {
     #andrew-right {
         position: relative;
         top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
 
     #andrew-right img {
         width: 80vw;
         max-width: 300px;
+        align-self: center;
     }
 
     #andrew-button-container {
-        position: relative;
+        /* position: relative;
         top: 0;
-        margin-top: 30px;
+        margin-top: 30px; */
+        margin-top: 20vh;
+        z-index: 1;
     }
 
     /* Team section */
@@ -1364,6 +1392,44 @@ html.lenis {
 
     /* Footer */
     .reveal-footer {
-        display: none;
+        position: static;
+        height: fit-content;
+    }
+
+    #footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 20px;
+        padding-left: 25px;
+    }
+
+    #footer-title {
+        width: 100%;
+        font-size: 2.5rem;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    #footer-links {
+        width: 100%;
+        gap: 15px;
+        margin-top: 0;
+        align-items: center;
+    }
+
+    #footer-links a {
+        font-size: 1.1rem;
+    }
+
+    #footer-detials {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    #footer-details p {
+        width: 90%;
+        max-width: 400px;
     }
 }
