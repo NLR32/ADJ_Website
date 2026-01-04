@@ -172,6 +172,7 @@ h1 {
     color: var(--text-color);
     border-style: solid;
     border-width: 2px;
+    border-color: var(--text-color);
     transition: all 0.3s ease, transform 1s ease;
     margin-top: 5vh;
     font-family: "Quicksand", sans-serif;
