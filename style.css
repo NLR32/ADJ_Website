@@ -873,13 +873,14 @@ h3 {
     padding-left: 10px;
     /* transform: translateY(80px); */
     opacity: 0;
+    height: 100%;
 }
 
 .member.show{
     opacity: 1;
     /* transform: translateY(0); */
     transform: translateY(-20px);
-    height: 100%;
+    
 }
 
 .member.show:hover{
