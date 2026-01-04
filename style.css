@@ -758,7 +758,7 @@ h3 {
 #test-type.start{
     width: 15ch;
     animation: typing 1.5s steps(18), blink .5s step-end infinite alternate;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 
 #andrew{
